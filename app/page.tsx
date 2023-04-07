@@ -2,6 +2,9 @@
 // import { Inter } from 'next/font/google'
 import Dashboard from './dashboard/page'
 import styles from './page.module.css'
+import Link from 'next/link'
+import Image from 'next/image'
+import ReactLogo from './logo.svg'
 
 // const inter = Inter({ subsets: ['latin'] })
 
@@ -10,8 +13,19 @@ export default function Home() {
     <main className={styles.main}>
       <h1 className="text-3xl font-bold underline">Hello, Next.js!</h1>
 
-      {/* @ts-expect-error Async Server Component */}
       <Dashboard />
+
+      <Link href={`/dashboard`}>Link</Link>
+
+      <div className="p-6 mt-8 max-w-sm mx-auto bg-white rounded-xl shadow-lg flex items-center space-x-4">
+        <div className="shrink-0">
+          <Image className="h-12 w-12" src={ReactLogo} alt="ChitChat Logo" />
+        </div>
+        <div>
+          <div className="text-xl font-medium text-black">ChitChat</div>
+          <p className="text-slate-500">You have a new message!</p>
+        </div>
+      </div>
 
       {/* <div className={styles.description}>
         <p>
